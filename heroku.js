@@ -25,4 +25,3 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 bot.on('message', function onMessage(msg) {
   bot.sendMessage(msg.chat.id, 'I am alive on Heroku! how are you?');
 });
-© 2020 GitHub, Inc.
