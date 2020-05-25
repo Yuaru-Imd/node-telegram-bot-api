@@ -22,7 +22,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 
 // Just to ping!
-bot.on('message', function onMessage(msg) {
+bot.on('message', (msg) => {
     var Hi = "hi";
     if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello dear user");
