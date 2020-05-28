@@ -24,11 +24,11 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 // Just to ping!
 bot.on('message', (msg) => {
     var Hi = "hi";
-    var Anjing = "hmmm";
+    var Bye = "bye";
     if (msg.text.toString().toLowerCase().indexOf(Hi) === 0) {
-        bot.sendMessage(msg.chat.id,"Hello Babi");
+        bot.sendMessage(msg.chat.id,"Hello User");
       }
-        if (msg.text.toString().toLowerCase().indexOf(Anjing) === 0) {
-          bot.sendMessage(msg.chat.id,"Nice Babi Anjing");
+        if (msg.text.toString().toLowerCase().indexOf(Bye) === 0) {
+          bot.sendMessage(msg.chat.id,"Bye User");
     }
 });
