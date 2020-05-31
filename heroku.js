@@ -32,26 +32,6 @@ bot.on('message', (msg) => {
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-        bot.sendMessage(msg.chat.id, "Click a button won't you!", {
-          "reply_markup": {
-              "inline_keyboard": [
-                  [
-                      {
-                          text: "Click me!",
-                          callback_data: "click",
-                      },
-                  ],
-              ],
-          },
-      });
-  });
-  
-  
-  bot.on("callback_query", (callbackQuery) => {
-      const msg = callbackQuery.message;
-      bot.answerCallbackQuery(callbackQuery.id)
-          .then(() => bot.sendMessage(msg.chat.id, "You clicked!"));
-  });
        
        
       }
