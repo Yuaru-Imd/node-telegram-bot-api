@@ -34,11 +34,15 @@ bot.on('message', (msg) => {
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-        menu.toggle('toggle me', 'a', {
-          setFunc: (_ctx, newVal) => {
-            mainMenuToggle = newVal
-          },
-          isSetFunc: () => mainMenuToggle
+        menu.simpleButton('click me', 'c', {
+          doFunc: async ctx => ctx.answerCbQuery('you clicked me!'),
+          hide: () => mainMenuToggle
+        });
+        
+        menu.simpleButton('click me harder', 'd', {
+          doFunc: async ctx => ctx.answerCbQuery('you can do better!'),
+          joinLastRow: true,
+          hide: () => mainMenuToggle
         });
 
        
