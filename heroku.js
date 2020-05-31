@@ -21,7 +21,8 @@ const bot = new TelegramBot(TOKEN, options);
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-
+const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
+menu.setCommand('start');
 // Just to ping!
 bot.on('message', (msg) => {
     var Hi = "hi";
@@ -32,6 +33,9 @@ bot.on('message', (msg) => {
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
+        menu.simpleButton('Text', 't', {
+          doFunc: ctx => ctx.reply('As am I!')
+        });
             
        
       }
