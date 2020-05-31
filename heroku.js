@@ -4,8 +4,8 @@
  */
 
 require('dotenv/config');
-const Telegraf = require('telegraf')
-const TelegrafInlineMenu = require('telegraf-inline-menu')
+const Telegraf = require('telegraf');
+const TelegrafInlineMenu = require('telegraf-inline-menu');
 const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
@@ -35,8 +35,8 @@ bot.on('message', (msg) => {
 
         bot.sendPhoto({
           chat_id = chat_id,
-  photo = photo_url,
-  caption = "Telegram Logo"
+          photo = 'https://www.sciencemag.org/sites/default/files/styles/article_main_image_-_1280w__no_aspect_/public/dogs_1280p_0.jpg?itok=6jQzdNB8',
+          caption = "Telegram Logo"
         });
         
       }
