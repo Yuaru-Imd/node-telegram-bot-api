@@ -4,6 +4,8 @@
  */
 
 require('dotenv/config');
+const Telegraf = require('telegraf')
+const TelegrafInlineMenu = require('telegraf-inline-menu')
 const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
@@ -27,33 +29,16 @@ bot.on('message', (msg) => {
     var Bye = "bye";
     
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-        bot.sendMessage(msg.chat.id,"Hello User");
+        bot.sendMessage(msg.chat.id,"Hello User"+msg.from.first_name);
 
-        const opts = {
-          reply_markup: {
-              inline_keyboard: [
-                  [{
-                          text: 'EUR',
-                          callback_data: JSON.stringify({
-                              'command': 'price',
-                              'base': 'EUR'
-                          })
-                      },
-                      {
-                          text: 'USD',
-                          callback_data: JSON.stringify({
-                              'command': 'price',
-                              'base': 'USD'
-                          })
-                      }
-                  ]
-              ]
-          }
-      };
-      bot.sendMessage(msg.chat.id, 'Choose currency', opts);
+        bot.sendPhoto({
+          caption: 'Hi Hi Hi',
+          photo: 'C:\Users\Home\Desktop\sticker.webp'
+        })
+        
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
-          bot.sendMessage(msg.chat.id,"Bye User"+ msg.from.first_name);
+          bot.sendMessage(msg.chat.id,"Bye"+ msg.from.first_name);
     }
 });
 
