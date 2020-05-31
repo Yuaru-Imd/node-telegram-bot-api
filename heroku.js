@@ -34,7 +34,6 @@ bot.on('message', (msg) => {
           bot.sendMessage(msg.chat.id,"Bye User");
     }
     if (msg.text.toString().toLowerCase().indexOf(Hey) === 0) {
-        bot.sendMessage(msg.from.id, "Hello  " + msg.from_user.first_name);
-        bot.isPolling();
+        bot.sendMessage(msg.chat.id, "Hello  " + msg.from_user.first_name);
     }
 });
