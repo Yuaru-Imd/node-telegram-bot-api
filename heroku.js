@@ -29,11 +29,15 @@ bot.on('message', (msg) => {
     const chatID = msg.chat.id;
     const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
     const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
+    const Telegraf = require('telegraf');
+    const TelegrafInlineMenu = require('telegraf-inline-menu');
     menu.setCommand('start');
 
     menu.simpleButton('I am excited!', 'a', {
       doFunc: ctx => ctx.reply('As am I!')
     });
+
+    bot.getUserProfilePhotos(menu.init());
 
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
