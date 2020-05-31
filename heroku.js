@@ -29,7 +29,8 @@ bot.on('message', (msg) => {
     const chatID = msg.chat.id;
     const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
     const menu = new TelegrafInlineMenu('Main Menu');
-
+    menu.urlButton('EdJoPaTo.de', 'https://edjopato.de');
+    let mainMenuToggle = false;
 
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
