@@ -32,23 +32,7 @@ bot.on('message', (msg) => {
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-        bot.sendMessage(msg.chat.id,'Got it, in which category?', {
-          reply_markup: {
-            inline_keyboard: [[
-              {
-                text: 'Development'
-                
-              },{
-                text: 'Music'
-                
-              },{
-                text: 'Cute monkeys'
-                
-              }
-            ]]
-          }
-        });
-       
+            
        
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
