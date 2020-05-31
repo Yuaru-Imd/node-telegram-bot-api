@@ -13,9 +13,6 @@ const options = {
     port: process.env.PORT
   }
 };
-chat_id <- user_id("Me");
-photo_url <- "https://telegram.org/img/t_logo.png"
-
 const url = process.env.APP_URL || 'https://<app-name>.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
 
