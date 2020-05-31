@@ -1,26 +1,28 @@
 {
-    "name": "node-telegram-bot-api",
-    "version": "1.0.0",
-    "description": "<h1 align=\"center\">Node.js Telegram Bot API</h1>",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node heroku.js"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/Yuaru-Imd/node-telegram-bot-api"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/Yuaru-Imd/node-telegram-bot-api/issues"
-    },
-    "homepage": "https://github.com/Yuaru-Imd/node-telegram-bot-api#readme",
-    "dependencies": {
-      "dotenv": "^8.2.0",
-      "express": "^4.17.1",
-      "node-telegram-bot-api": "^0.40.0"
-    }
+  "name": "node-telegram-bot-api",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">Node.js Telegram Bot API</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node heroku.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yuaru-Imd/node-telegram-bot-api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yuaru-Imd/node-telegram-bot-api/issues"
+  },
+  "homepage": "https://github.com/Yuaru-Imd/node-telegram-bot-api#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-telegram-bot-api": "^0.40.0",
+    "telegraf": "^3.38.0",
+    "telegraf-inline-menu": "^4.0.1"
   }
+}

@@ -33,3 +33,27 @@ bot.on('message', (msg) => {
           bot.sendMessage(msg.chat.id,"Bye User"+ msg.from.first_name);
     }
 });
+bot.onText(/price/, (msg, match) => {
+  const opts = {
+      reply_markup: {
+          inline_keyboard: [
+              [{
+                      text: 'EUR',
+                      callback_data: JSON.stringify({
+                          'command': 'price',
+                          'base': 'EUR'
+                      })
+                  },
+                  {
+                      text: 'USD',
+                      callback_data: JSON.stringify({
+                          'command': 'price',
+                          'base': 'USD'
+                      })
+                  }
+              ]
+          ]
+      }
+  };
+  bot.sendMessage(msg.chat.id, 'Choose currency', opts);
+});
