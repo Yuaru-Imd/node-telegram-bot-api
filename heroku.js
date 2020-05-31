@@ -25,10 +25,14 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 bot.on('message', (msg) => {
     var Hi = "hi";
     var Bye = "bye";
+    var Hey = "hey";
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello User");
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
           bot.sendMessage(msg.chat.id,"Bye User");
+    }
+    if (msg.text.toString().toLowerCase().indexOf(Hey) === 0) {
+        bot.sendMessage(msg.from.id, "Hello  " + msg.from.first_name);
     }
 });
