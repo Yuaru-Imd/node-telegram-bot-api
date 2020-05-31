@@ -28,10 +28,20 @@ bot.on('message', (msg) => {
     var Bye = "bye";
     const chatID = msg.chat.id;
     const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
-    
+
+
+
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
+        const starter = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
+        starter.setCommand('start');
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
+        starter.simpleButton('I am excited!', 'a', {
+          doFunc: ctx => ctx.reply('As am I!')
+        });
+        const bot = new Telegraf(process.env.BOT_TOKEN);
+        bot.use(menu.init());
+        bot.startPolling();
        
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
