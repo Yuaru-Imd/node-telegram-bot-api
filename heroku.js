@@ -57,3 +57,22 @@ bot.onText(/price/, (msg, match) => {
   };
   bot.sendMessage(msg.chat.id, 'Choose currency', opts);
 });
+
+bot.on('callback_query', function onCallbackQuery(callbackQuery) {
+  const data = JSON.parse(callbackQuery.data);
+  const opts = {
+      chat_id: callbackQuery.message.chat.id,
+      message_id: callbackQuery.message.message_id,
+  };
+  if (data.command === 'price') {
+      getTicker('ETP', data.base)
+          .then(ticker => {
+              bot.sendMessage(opts.chat_id, `The current price of ETP is: ${ticker.price} ${data.base}`);
+              bot.answerCallbackQuery(callbackQuery.id);
+          })
+          .catch(error => {
+              bot.sendMessage(opts.chat_id, 'Not found');
+              bot.answerCallbackQuery(callbackQuery.id);
+          });
+  }
+});
