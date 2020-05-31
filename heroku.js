@@ -28,14 +28,17 @@ bot.on('message', (msg) => {
     var Bye = "bye";
     const chatID = msg.chat.id;
     const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
-
+    const menu = new TelegrafInlineMenu('Main Menu');
 
 
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-        bot.simpleButton('I am excited!', 'a', {
-          doFunc: ctx => ctx.reply('As am I!')
+        menu.toggle('toggle me', 'a', {
+          setFunc: (_ctx, newVal) => {
+            mainMenuToggle = newVal
+          },
+          isSetFunc: () => mainMenuToggle
         });
 
        
