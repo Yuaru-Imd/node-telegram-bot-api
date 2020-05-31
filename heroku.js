@@ -30,6 +30,6 @@ bot.on('message', (msg) => {
         bot.sendMessage(msg.chat.id,"Hello User");
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
-          bot.sendMessage(msg.chat.id,"Bye User");
+          bot.sendMessage(msg.chat.id,"Bye User"+ msg.from.first_name);
     }
 });
