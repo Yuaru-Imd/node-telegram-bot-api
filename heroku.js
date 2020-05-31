@@ -21,14 +21,15 @@ const bot = new TelegramBot(TOKEN, options);
 // Note: we do not need to pass in the cert, as it already provided
 bot.setWebHook(`${url}/bot${TOKEN}`);
 
-const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
-menu.setCommand('start');
+
 // Just to ping!
 bot.on('message', (msg) => {
     var Hi = "hi";
     var Bye = "bye";
     const chatID = msg.chat.id;
     const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
+    const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
+    menu.setCommand('start');
     menu.simpleButton('Text', 't', {
       doFunc: ctx => ctx.reply('As am I!')
     });
