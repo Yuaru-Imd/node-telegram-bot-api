@@ -6,8 +6,6 @@
 require('dotenv/config');
 const Telegraf = require('telegraf');
 const TelegrafInlineMenu = require('telegraf-inline-menu');
-const TelegrafInlineMenu = require('./dist');
-const session = require('telegraf/session');
 const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
@@ -30,24 +28,17 @@ bot.on('message', (msg) => {
     var Bye = "bye";
     const chatID = msg.chat.id;
     const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
-    const menu = new TelegrafInlineMenu('Main Menu');
-    menu.urlButton('EdJoPaTo.de', 'https://edjopato.de');
-    let mainMenuToggle = false;
+    const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
+    menu.setCommand('start');
+
+    menu.simpleButton('I am excited!', 'a', {
+      doFunc: ctx => ctx.reply('As am I!')
+    });
 
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
         bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-        menu.simpleButton('click me', 'c', {
-          doFunc: async ctx => ctx.answerCbQuery('you clicked me!'),
-          hide: () => mainMenuToggle
-        });
-        
-        menu.simpleButton('click me harder', 'd', {
-          doFunc: async ctx => ctx.answerCbQuery('you can do better!'),
-          joinLastRow: true,
-          hide: () => mainMenuToggle
-        });
-
+       
        
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
