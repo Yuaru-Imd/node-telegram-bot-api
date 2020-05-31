@@ -13,6 +13,8 @@ const options = {
     port: process.env.PORT
   }
 };
+chat_id <- user_id("Me");
+photo_url <- "https://telegram.org/img/t_logo.png"
 
 const url = process.env.APP_URL || 'https://<app-name>.herokuapp.com:443';
 const bot = new TelegramBot(TOKEN, options);
@@ -29,16 +31,17 @@ bot.on('message', (msg) => {
     var Bye = "bye";
     
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-        bot.sendMessage(msg.chat.id,"Hello"+msg.from.first_name);
+        bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
 
         bot.sendPhoto({
-          caption: 'Hi Hi Hi',
-          photo: 'C:\Users\Home\Desktop\sticker.webp'
+          chat_id = chat_id,
+  photo = photo_url,
+  caption = "Telegram Logo"
         });
         
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
-          bot.sendMessage(msg.chat.id,"Bye"+ msg.from.first_name);
+          bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
     }
 });
 
