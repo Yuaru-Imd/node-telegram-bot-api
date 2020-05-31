@@ -29,12 +29,12 @@ bot.on('message', (msg) => {
     var Bye = "bye";
     
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-        bot.sendMessage(msg.chat.id,"Hello User"+msg.from.first_name);
+        bot.sendMessage(msg.chat.id,"Hello"+msg.from.first_name);
 
         bot.sendPhoto({
           caption: 'Hi Hi Hi',
           photo: 'C:\Users\Home\Desktop\sticker.webp'
-        })
+        });
         
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
