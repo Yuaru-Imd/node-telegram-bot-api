@@ -46,6 +46,3 @@ bot.on('message', (msg) => {
           bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
     }
 });
-
-bot.use(menu.init());
-bot.startPolling;
