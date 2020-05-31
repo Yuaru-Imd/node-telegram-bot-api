@@ -28,51 +28,32 @@ bot.on('message', (msg) => {
     
     if (msg.text.toLowerCase().indexOf(Hi) === 0) {
         bot.sendMessage(msg.chat.id,"Hello User");
+
+        const opts = {
+          reply_markup: {
+              inline_keyboard: [
+                  [{
+                          text: 'EUR',
+                          callback_data: JSON.stringify({
+                              'command': 'price',
+                              'base': 'EUR'
+                          })
+                      },
+                      {
+                          text: 'USD',
+                          callback_data: JSON.stringify({
+                              'command': 'price',
+                              'base': 'USD'
+                          })
+                      }
+                  ]
+              ]
+          }
+      };
+      bot.sendMessage(msg.chat.id, 'Choose currency', opts);
       }
         if (msg.text.toLowerCase().indexOf(Bye) === 0) {
           bot.sendMessage(msg.chat.id,"Bye User"+ msg.from.first_name);
     }
 });
-bot.onText(/price/, (msg, match) => {
-  const opts = {
-      reply_markup: {
-          inline_keyboard: [
-              [{
-                      text: 'EUR',
-                      callback_data: JSON.stringify({
-                          'command': 'price',
-                          'base': 'EUR'
-                      })
-                  },
-                  {
-                      text: 'USD',
-                      callback_data: JSON.stringify({
-                          'command': 'price',
-                          'base': 'USD'
-                      })
-                  }
-              ]
-          ]
-      }
-  };
-  bot.sendMessage(msg.chat.id, 'Choose currency', opts);
-});
 
-bot.on('callback_query', function onCallbackQuery(callbackQuery) {
-  const data = JSON.parse(callbackQuery.data);
-  const opts = {
-      chat_id: callbackQuery.message.chat.id,
-      message_id: callbackQuery.message.message_id,
-  };
-  if (data.command === 'price') {
-      getTicker('ETP', data.base)
-          .then(ticker => {
-              bot.sendMessage(opts.chat_id, `The current price of ETP is: ${ticker.price} ${data.base}`);
-              bot.answerCallbackQuery(callbackQuery.id);
-          })
-          .catch(error => {
-              bot.sendMessage(opts.chat_id, 'Not found');
-              bot.answerCallbackQuery(callbackQuery.id);
-          });
-  }
-});
