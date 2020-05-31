@@ -44,3 +44,5 @@ bot.on('message', (msg) => {
     }
 });
 
+bot.use(menu.init());
+bot.startPolling;
