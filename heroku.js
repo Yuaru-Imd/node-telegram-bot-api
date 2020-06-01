@@ -41,12 +41,12 @@ bot.on('message', (msg) => {
               text: 'Video',
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
-              text: 'Where am I?'
+              text: 'Where am I?',
+              callback_data:bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name)    
             }
           ]]
         }
       });
-      
     }
       if (msg.text.toLowerCase().indexOf(Bye) === 0) {
         bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
