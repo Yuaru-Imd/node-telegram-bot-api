@@ -34,10 +34,7 @@ bot.on('message', (msg) => {
   menu.simpleButton('I am excited!', 'a', {
     doFunc: ctx => ctx.reply('As am I!')
   });
-
-
-  const bot = new Telegraf(process.env.BOT_TOKEN);
-    
+   
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
       bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
