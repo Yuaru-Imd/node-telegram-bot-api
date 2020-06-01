@@ -39,17 +39,10 @@ bot.on('message', (msg) => {
             inline_keyboard: [
                 [{
                         text: 'BTC',
-                        callback_data: JSON.stringify({
-                            command: 'price',
-                            'base': 'BTC'
-                        })
+                        
                     },{
                       text: 'EUR',
-                      callback_data: JSON.stringify({
-                          command: 'price',
-                          'base': 'EUR'
-                      })
-                  }
+                    }
                 ]
               ]
             }       
