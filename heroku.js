@@ -30,7 +30,7 @@ bot.on('message', (msg) => {
   const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
   const menu = new TelegrafInlineMenu('Main Menu');
   menu.urlButton('EdJoPaTo.de', 'https://edjopato.de');
-  let mainMenuToggle = false;
+  let mainMenuToggle = false
   menu.toggle('toggle me', 'a', {
     setFunc: (_ctx, newState) => {
       mainMenuToggle = newState
@@ -48,7 +48,7 @@ bot.on('message', (msg) => {
     hide: () => mainMenuToggle
   });
   
-  let selectedKey = 'b';
+  let selectedKey = 'b'
   menu.select('s', ['A', 'B', 'C'], {
     setFunc: async (ctx, key) => {
       selectedKey = key
