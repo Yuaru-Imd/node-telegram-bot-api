@@ -24,25 +24,26 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 // Just to ping!
 bot.on('message', (msg) => {
+  var Hi = "hi";
+  var Bye = "bye";
+  const chatID = msg.chat.id;
+  const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
   const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
   menu.setCommand('start');
+
   menu.simpleButton('I am excited!', 'a', {
     doFunc: ctx => ctx.reply('As am I!')
   });
-  
-  });
-    var Hi = "hi";
-    var Bye = "bye";
-    const chatID = msg.chat.id;
-    const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
-    if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-        bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
-        bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-        
-      
-       
-      }
-        if (msg.text.toLowerCase().indexOf(Bye) === 0) {
-          bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
+
+
+  const bot = new Telegraf(process.env.BOT_TOKEN);
+    
+    
+  if (msg.text.toLowerCase().indexOf(Hi) === 0) {
+      bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
+      bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
     }
+      if (msg.text.toLowerCase().indexOf(Bye) === 0) {
+        bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
+  }
 });
