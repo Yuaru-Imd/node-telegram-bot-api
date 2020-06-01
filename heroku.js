@@ -37,6 +37,26 @@ bot.on('message', (msg) => {
     },
     isSetFunc: () => mainMenuToggle
   });
+  menu.simpleButton('click me', 'c', {
+    doFunc: async ctx => ctx.answerCbQuery('you clicked me!'),
+    hide: () => mainMenuToggle
+  });
+  
+  menu.simpleButton('click me harder', 'd', {
+    doFunc: async ctx => ctx.answerCbQuery('you can do better!'),
+    joinLastRow: true,
+    hide: () => mainMenuToggle
+  });
+  
+  let selectedKey = 'b';
+  menu.select('s', ['A', 'B', 'C'], {
+    setFunc: async (ctx, key) => {
+      selectedKey = key
+      await ctx.answerCbQuery(`you selected ${key}`)
+    },
+    isSetFunc: (_ctx, key) => key === selectedKey
+  });
+  
  
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
