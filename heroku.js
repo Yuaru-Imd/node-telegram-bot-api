@@ -6,6 +6,7 @@
 require('dotenv/config');
 const Telegraf = require('telegraf');
 const TelegrafInlineMenu = require('telegraf-inline-menu');
+const TelegrafInlineMenu = require('../dist/source')
 const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
@@ -30,6 +31,13 @@ bot.on('message', (msg) => {
   const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
   const menu = new TelegrafInlineMenu('Main Menu');
   menu.urlButton('EdJoPaTo.de', 'https://edjopato.de');
+  let mainMenuToggle = false;
+  menu.toggle('toggle me', 'a', {
+  setFunc: (_ctx, newState) => {
+    mainMenuToggle = newState
+  },
+  isSetFunc: () => mainMenuToggle
+  });
 
   
    
