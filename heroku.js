@@ -40,6 +40,8 @@ bot.on('message', (msg) => {
       menu.simpleButton('I am excited!', 'a', {
         doFunc: ctx => ctx.reply('As am I!')
       });
+      bot.use(menu.init());
+      bot.startPolling();
     }
       if (msg.text.toLowerCase().indexOf(Bye) === 0) {
         bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
