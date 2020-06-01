@@ -5,7 +5,7 @@
 
 require('dotenv/config');
 const Telegraf = require('telegraf');
-const TelegrafInlineMenu = require('telegraf-inline-menu');
+const TelegrafInlineMenu = require('../dist/source');
 const TOKEN = process.env.TELEGRAM_TOKEN || 'YOUR_TELEGRAM_BOT_TOKEN';
 const TelegramBot = require('node-telegram-bot-api');
 const options = {
