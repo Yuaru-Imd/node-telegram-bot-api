@@ -28,26 +28,35 @@ bot.on('message', (msg) => {
   var Bye = "bye";
   const chatID = msg.chat.id;
   const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
-  const opts = {
-    reply_markup: {
-        inline_keyboard: [
-            [{
-                    text: 'BTC',
-                    
-                },{
-                  text: 'EUR',
-                }
-            ]
-          ]
-        }       
-  
-  };
-   
+  var inlineKeyboard = [
+    [
+      {
+        text: 'A: Pick me!',
+        callback_data: 'A'
+      },
+      {
+        text: 'B: No, me!',
+        callback_data: 'B'
+      }
+    ],
+    [{
+      text: 'C: NO! CHOOSE ME!',
+      callback_data: 'C'
+    }]
+  ]
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
       bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
       bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
+      return {
+        text: 'Pick one',
+        reply_markup: { inlineKeyboard: inlineKeyboard}
+      }
       
+      
+    }
+    if (MessageChannel.originalRequest.callback_query){
+      return 'You picked' + message.text;
     }
       if (msg.text.toLowerCase().indexOf(Bye) === 0) {
         bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
