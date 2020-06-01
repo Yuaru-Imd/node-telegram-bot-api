@@ -35,6 +35,7 @@ bot.on('message', (msg) => {
           reply_markup:[
             [{
               text: "Test",
+              callback_data='1'
             }]
           ]
         })
