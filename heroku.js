@@ -24,11 +24,12 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 // Just to ping!
 bot.on('message', (msg) => {
-  const trigger = 'I want it!';
-  bot.sendMessage(msg.chat.id, 'Hi, do you want some answer?', {
-    reply_markup: {
-      keyboard: [[trigger], ['Bulk option']]
-    }
+  const menu = new TelegrafInlineMenu(ctx => `Hey ${ctx.from.first_name}!`);
+  menu.setCommand('start');
+  menu.simpleButton('I am excited!', 'a', {
+    doFunc: ctx => ctx.reply('As am I!')
+  });
+  
   });
     var Hi = "hi";
     var Bye = "bye";
