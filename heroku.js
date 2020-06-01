@@ -32,13 +32,13 @@ bot.on('message', (msg) => {
    
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-      bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
       bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
+      bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);    
       bot.sendMessage(msg.chat.id, 'Got it',{
         reply_markup: {
           inline_keyboard: [[
             {
-              text: 'Bambolzed',
+              text: 'Video',
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
               text: 'B',
