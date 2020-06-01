@@ -28,26 +28,26 @@ bot.on('message', (msg) => {
   var Bye = "bye";
   const chatID = msg.chat.id;
   const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
-   
+  const opts = {
+    reply_markup: {
+        inline_keyboard: [
+            [{
+                    text: 'BTC',
+                    
+                },{
+                  text: 'EUR',
+                }
+            ]
+          ]
+        }       
+  
+};
    
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
       bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
       bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
-      const opts = {
-        reply_markup: {
-            inline_keyboard: [
-                [{
-                        text: 'BTC',
-                        
-                    },{
-                      text: 'EUR',
-                    }
-                ]
-              ]
-            }       
       
-    };
     }
       if (msg.text.toLowerCase().indexOf(Bye) === 0) {
         bot.sendMessage(msg.chat.id,"Bye "+ msg.from.first_name);
