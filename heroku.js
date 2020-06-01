@@ -32,7 +32,7 @@ bot.on('message', (msg) => {
    
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-      bot.sendVideo(chatID,photo, { caption: "Wake UP!"+msg.from.first_name});
+      bot.sendVideo(chatID,photo, { caption: "Wake UP! "+msg.from.first_name});
       //bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);    
       bot.sendMessage(msg.chat.id, 'Select An Option',{
         reply_markup: {
@@ -42,7 +42,7 @@ bot.on('message', (msg) => {
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
               text: 'Where am I?',
-              callback_data: 'A'    
+              request_location: true    
             }
           ]]
         }
