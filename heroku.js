@@ -32,8 +32,8 @@ bot.on('message', (msg) => {
    
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-      bot.sendVideo(chatID,photo, { caption: "Wake UP!"});
-      bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);    
+      bot.sendVideo(chatID,photo, { caption: "Wake UP!"+msg.from.first_name});
+      //bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);    
       bot.sendMessage(msg.chat.id, 'Select An Option',{
         reply_markup: {
           inline_keyboard: [[
