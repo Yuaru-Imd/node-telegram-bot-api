@@ -36,10 +36,8 @@ bot.on('message', (msg) => {
     mainMenuToggle = newState
   },
   isSetFunc: () => mainMenuToggle
-  });
-
-  
-   
+  })
+ 
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
       bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);
