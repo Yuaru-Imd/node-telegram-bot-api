@@ -27,12 +27,12 @@ bot.on('message', (msg) => {
   var Hi = "hi";
   var Bye = "bye";
   const chatID = msg.chat.id;
-  const photo = 'https://grandorder.wiki/images/thumb/3/37/Fgo-mainpage-logo.png/300px-Fgo-mainpage-logo.png';
+  const photo = 'https://media.giphy.com/media/4rhsbU05IsJNK/giphy.gif';
   
    
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
-      bot.sendPhoto(chatID,photo, { caption: "People Die If They Being Killed"});
+      bot.sendPhoto(chatID,photo, { caption: "Wake UP!"});
       bot.sendMessage(msg.chat.id,"Hello "+msg.from.first_name);    
       bot.sendMessage(msg.chat.id, 'Select An Option',{
         reply_markup: {
@@ -41,8 +41,8 @@ bot.on('message', (msg) => {
               text: 'Video',
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
-              text: 'B',
-              callback_data: 'b'
+              text: 'Where am I?',
+              callback_data: bot.sendPhoto(chatID,photo, { caption: "Wake UP!"})
             }
           ]]
         }
