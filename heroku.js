@@ -43,7 +43,7 @@ bot.on('message', (msg) => {
             },{
               text: 'Where am I?',
               callback_data: 'request_location',
-              request_location: true    
+           
             }
           ]]
         }
