@@ -38,9 +38,11 @@ bot.on('message', (msg) => {
         reply_markup: {
           inline_keyboard: [[
             {
-              text: 'A'
+              text: 'A',
+              callback_data: 'a'
             },{
-              text: 'B'
+              text: 'B',
+              callback_data: 'b'
             }
           ]]
         }
