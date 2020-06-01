@@ -41,7 +41,7 @@ bot.on('message', (msg) => {
           ]
         }       
   
-};
+  };
    
     
   if (msg.text.toLowerCase().indexOf(Hi) === 0) {
