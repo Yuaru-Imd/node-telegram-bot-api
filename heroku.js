@@ -42,7 +42,8 @@ bot.on('message', (msg) => {
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
               text: 'Where am I?',
-              callback_data: 'request_location',
+              "request_location":true
+              
            
             }
           ]]
