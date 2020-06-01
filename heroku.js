@@ -38,8 +38,8 @@ bot.on('message', (msg) => {
         reply_markup: {
           inline_keyboard: [[
             {
-              text: 'A',
-              callback_data: 'a'
+              text: 'Bambolzed',
+              url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
               text: 'B',
               callback_data: 'b'
