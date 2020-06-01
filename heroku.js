@@ -41,8 +41,7 @@ bot.on('message', (msg) => {
               text: 'Video',
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
-              text: 'Where am I?',
-              callback_data: bot.sendMessage(msg.chat.id,"Hmmmmmmm")
+              text: 'Where am I?'
             }
           ]]
         }
