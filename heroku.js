@@ -24,6 +24,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 
 // Just to ping!
 bot.on('message', (msg) => {
+  const trigger = 'I want it!';
   bot.sendMessage(msg.chat.id, 'Hi, do you want some answer?', {
     reply_markup: {
       keyboard: [[trigger], ['Bulk option']]
