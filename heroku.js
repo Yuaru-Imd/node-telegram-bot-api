@@ -28,6 +28,7 @@ bot.on('message', (msg) => {
   var Bye = "bye";
   const chatID = msg.chat.id;
   const photo = 'https://media.giphy.com/media/4rhsbU05IsJNK/giphy.gif';
+
   
    
     
@@ -42,8 +43,7 @@ bot.on('message', (msg) => {
               url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },{
               text: 'Where am I?',
-              callback_data: 'request_location',
-             
+              callback_data: 'request_location'             
             }
           ]]
         }
